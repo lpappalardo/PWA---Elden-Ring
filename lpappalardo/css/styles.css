@@ -1,0 +1,370 @@
+:root {
+    --clr-main: #ef9008;
+    --clr-secondary: #162627;
+    --clr-gray: #ececec;
+    --clr-white: rgb(237, 237, 237);
+    --clr-black: rgb(21, 21, 21);
+    --clr-black-2: #0e1e1e;
+    --clr-red: rgb(131, 4, 4);
+
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    color: var(--clr-black);
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+.bg-dk-green {
+    background-color: var(--clr-secondary);
+}
+
+.bg-dk {
+    background-color: var(--clr-black-2);
+}
+
+.li_item {
+    list-style: none;
+}
+
+.centrar-texto {
+    text-align: center;
+}
+
+.seccion-titulo {
+    margin-bottom: 1.6rem;
+    font-weight: 600;
+}
+
+/* HEADER NAV */
+
+.nav-link {
+    color: var(--clr-white);
+    text-transform: uppercase;
+    font-weight: 900;
+}
+
+.nav-link:focus,
+.nav-link:hover{
+    color: var(--clr-main);
+}
+
+.boton {
+    padding: .5rem 1rem;
+    background-color: var(--clr-main);
+    color: var(--clr-white);
+    border-radius: 5px;
+    margin: auto;
+    border: none;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.boton:focus,
+.boton:hover {
+    opacity: 0.8;
+    color: var(--clr-white);
+}
+
+.agregarJefe,
+.agregarPersonaje,
+.agregarObjeto,
+.agregarCriatura,
+.agregarZona {
+    background-color: var(--clr-main);
+}
+
+.quitarJefe,
+.quitarPersonaje,
+.quitarObjeto,
+.quitarCriatura,
+.quitarZona {
+    background-color: var(--clr-red);
+}
+
+.escondido {
+    display: none;
+}
+
+.borde-dorado {
+    border: 2px solid var(--clr-main);
+}
+
+#mensaje-error-zona,
+#mensaje-error-criatura,
+#mensaje-error-objeto,
+#mensaje-error-personaje,
+#mensaje-error-jefe {
+    color: var(--clr-red);
+}
+
+#servicio {
+    margin-left: 1rem;
+}
+
+#servicio:hover {
+    color: var(--clr-secondary);
+
+}
+
+.navbar .navbar-toggler:focus{
+    box-shadow: none;
+}
+
+.navbar .navbar-toggler-icon{
+    background: url(../img/menu-haburguesa.png) no-repeat center center;
+    background-size: cover;
+}
+
+#menu {
+    justify-content: flex-end;
+}
+
+#logo{
+    background: url(../img/darkestDungeonLogo.png) no-repeat center center;
+    background-size: cover;
+    width: 50px;
+    height: 50px;
+    font-size: 0;
+    filter: brightness(0) saturate(100%) invert(93%) sepia(51%) saturate(6132%) hue-rotate(173deg) brightness(129%) contrast(108%);
+}
+
+@media screen and (max-width: 991px) {
+    .nav-item{
+        margin: 0.5rem 0;
+        text-align: center;
+    }
+
+    .nav-item:first-child{
+        margin-top: 1rem;
+    }
+
+    .nav-item:last-child{
+
+        margin: 1rem;
+    }
+
+    #servicio {
+        margin-left: auto;
+    }
+}
+
+/* BANNER */
+
+.banner {
+    padding: 16rem 0;
+    background-image: url(../img/pictures/elden-ring-banner.jpg);
+    background-position: center;
+    background-repeat: no-repeat; 
+    background-size: cover;
+    color: var(--clr-white);
+    text-align: center;
+}
+
+.banner-contenido h2 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    text-shadow: var(--clr-black) 8px 8px 12px;
+}
+
+.banner-contenido p {
+    font-size: 1.5rem;
+    text-shadow: var(--clr-black) 8px 8px 12px;
+    font-weight: 500;
+}
+
+/* SECCION 1 */
+
+.seccion {
+    margin: 3rem auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card-inicio {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card-inicio + .card-inicio {
+    margin-top: 2rem;
+}
+
+.card-inicio picture{
+    max-width: 90%;
+}
+
+.contenido-card{
+    padding: 2rem;
+    max-width: 100%;
+    background-color: var(--clr-gray);
+}
+
+.contenido-card h3{
+    margin-bottom: 1.2rem;
+    color: var(--clr-main);
+    font-weight: 500;
+}
+
+.contenido-card p{
+    line-height: 1.5em;
+}
+
+@media screen and (min-width: 960px) {
+    .invertido{
+        order: -1;
+    }
+    
+    .card-inicio {
+        display: flex;
+        flex-direction: row;
+    }
+    
+    .card-inicio picture{
+        max-width: 40%;
+    }
+
+    .contenido-card{
+        max-width: 60%;
+    }
+}
+
+/* ACORDEON */
+
+.componentes-aventura {
+    width: 100%;
+    margin: 2rem 0 2rem 0;
+}
+
+.noParent{
+    width: 100%;
+}
+
+.noParent .accordion-item .accordion-button{
+    background-color: 07102d;
+    height: 50px;
+    padding-left: 1.5rem;
+    border-radius: 10px;
+    box-shadow: -4px -4px 4px var(--clr-secondary);
+}
+
+.noParent .accordion-item .accordion-button:not(.collapsed){
+    box-shadow: 4px 4px 4px var(--clr-main);
+    background-color: var(--clr-secondary);
+    color: var(--clr-white);
+}
+
+.accordion-item + .accordion-item {
+    margin-top: 1rem;
+}
+
+.componentes-aventura-elementos {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    row-gap: 2rem;
+    column-gap: 1rem;
+    margin: 3rem 0;
+}
+
+@media screen and (min-width: 701px) {
+
+    .componentes-aventura-elementos{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (min-width: 960px) {
+
+    .componentes-aventura-elementos {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* SECCION 2 */
+
+.call-to-action {
+    background-image: url(../img/pictures/elden-ring-banner-2.png);
+    background-position: center;
+    background-repeat: no-repeat; 
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    padding: 6rem 0;
+}
+
+.crear-aventura {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.crear-aventura h3 {
+    margin-bottom: 4rem;
+    font-weight: 600;
+    font-size: 2.6rem;
+}
+
+.crear-aventura .boton {
+    margin-bottom: 3rem;
+}
+
+.ver-aventura h3 {
+    font-size: 2rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+.ver-aventura .aventuras-diseñadas {
+   margin: 3rem 0 2rem 0; 
+   text-align: center;
+}
+
+/* FOOTER */
+
+footer {
+    color: var(--clr-white);
+}
+
+a .redSocial:hover{	
+	filter: brightness(0) saturate(100%) invert(65%) sepia(68%) saturate(4313%) hue-rotate(8deg) brightness(107%) contrast(94%);
+}
+
+
+.logoGrande {
+    filter: brightness(0) saturate(100%) invert(93%) sepia(51%) saturate(6132%) hue-rotate(173deg) brightness(129%) contrast(108%);
+}
+
+@media screen and (max-width: 991px) {
+    .footerCentrado{
+        margin-bottom: 1rem;
+        text-align: center;
+    }
+
+    .listaCentrada {
+        margin: 0;
+    }
+}
+
+/* AVENTURAS */
+
+.aventura {
+    margin: 2rem 0;
+    padding: 2rem;
+    border: 2px solid var(--clr-black-2);
+    border-radius: 4px;
+    text-align: center;
+    color: var(--clr-black);
+}
+
+.aventura h3 {
+    color: var(--clr-main);
+    margin-bottom: 1rem;
+}

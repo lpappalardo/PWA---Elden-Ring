@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="manifest" href="./manifest.json">
+    <title>Elden Ring</title>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg bg-dk-green">
+            <div class="container-fluid container">
+                <h1 class="my-auto" id="logo">Elden Ring</h1>
+
+                <button 
+                type="button"
+                class="navbar-toggler"
+                data-bs-toggle="collapse"
+                data-bs-target="#menu"
+                aria-controls="menu"
+                aria-expanded="false"
+                aria-label="Boton hamburguesa"
+                >
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div id="menu" class="collapse navbar-collapse">
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><a class="nav-link" href="#card-1">Inicio</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#card-2">Inspiracion</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#card-3">Propuesta</a></li>
+                        <li class="nav-item"><a class="nav-link boton" id="servicio" href="#seccion-servicio">Crear Aventura</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    
+    <section class="banner">
+        <div class="container banner-contenido">
+            <h2>Explora las Tierras Intermedias</h2>
+            <p>El mundo del aclamado juego de rol y acción en una ambientación de fantasía oscura</p>
+        </div>
+    </section>
+
+    <section class="container seccion">
+            <div class="card-inicio" id="card-1">
+                <picture>
+                    <source media="(max-width: 700px)" srcset="./img/pictures/eldenRingSmall.png">
+                    <source media="(max-width: 959px)" srcset="./img/pictures/eldenRingMedium.png">
+                    <img src="./img/pictures/eldenRing.png  " alt="Libros del Archivo">
+                </picture>
+                <div class="contenido-card">
+                    <h3>Elden Ring</h3>
+                    <p>
+                        Se decidió centrar la temática del proyecto en Elden Ring este es un videojuego de rol de acción en tercera persona, con una jugabilidad centrada en el combate y la exploración. Presenta características similares de otros juegos desarrollados por FromSoftware, tales como la saga Dark Souls, Bloodborne y Sekiro: Shadows Die Twice. Localizado en un mundo abierto, el jugador puede explorar libremente las Tierras Intermedias y sus seis áreas principales. Estas localizaciones varían desde Necrolimbo, una zona de prados verdes y ruinas antiguas, hasta Caelid, un páramo poblado de monstruos no-muertos.Las zonas de mundo abierto se pueden explorar con la montura espectral del personaje jugador, Torrentera, como principal método de viaje, además de la opción de viaje rápido fuera de combate. 
+                    </p>
+                </div>     
+            </div>
+            <div class="card-inicio" id="card-2">
+                <picture>
+                    <source media="(max-width: 700px)" srcset="./img/pictures/dungeonsAndDragonsSmall.png">
+                    <source media="(max-width: 959px)" srcset="./img/pictures/dungeonsAndDragonsMedium.png">
+                    <img src="./img/pictures/dungeonsAndDragons.png" alt="Cosmere">
+                </picture>
+                <div class="contenido-card invertido">
+                    <h3>La inspiración</h3>
+                    <p>
+                        La dinánica que se deseo emplear es una similar a la del juego de rol Dungeons & Dragons (D&D) consiste en contar historias en mundos de espada y brujería. Al igual que en los juegos de niños en los que se finge ser personajes ficticios, el motor de D&D es la imaginación. Este es un mundo fantástico, donde las posibilidades son ilimitadas.
+                    </p>
+                </div>   
+            </div>
+            <div class="card-inicio" id="card-3">
+                <picture>
+                    <source media="(max-width: 700px)" srcset="./img/pictures/darkSoulsMinisSmall.png">
+                    <source media="(max-width: 959px)" srcset="./img/pictures/darkSoulsMinisMedium.png">
+                    <img src="./img/pictures/darkSoulsMinis.png" alt="Roshar">
+                </picture>
+                <div class="contenido-card">
+                    <h3>Nuestra Propuesta</h3>
+                    <p>
+                        A partir de lo ya mencionado, planteamos la posibilidad de crear aventuras para partidas rol. Como base de la misma se propone el uso de componentes del mundo de Elden Ring, por lo cual se podra utilizar Zonas, Criaturas, Objetos entre otros de los este mundo. La finalidad, es poder brindar la posibilidad de que cada uno pueda crear su Aventura personalida en función de los respectivos gustos e intereses.
+                    </p>
+                </div>     
+            </div>
+        </div>
+    </section>
+
+    <section id="seccion-servicio" class="container seccion">
+        <div class="crear-aventura">
+            <h3>Diseña tu propia aventura</h3>
+            <p>Una aventura debe tener seleccionada al menos 1 Zona, 1 Critaura, 1 Objeto, 1 Personaje y un 1 Jefe.</p>
+                <div class="componentes-aventura">
+                    <div class="noParent">
+        
+                        <div class="accordion-item">
+        
+                            <h2 class="accordion-header" id="uno">
+                                <button
+                                class="accordion-button"
+                                type="button"
+                                data-bs-toggle="collapse"
+                                data-bs-target="#infoUno"
+                                aria-controls="infoUno"
+                                aria-expanded="false"
+                                >Selecciona al menos una Zona</button>
+                            </h2>
+                    
+                            <div id="infoUno" class="accordion-collapse collapse" data-bs-parent="#colapsable">
+                                <div class="accordion-body">
+                                    <div id="componentes-zona" class="componentes-aventura-elementos">
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <p id="mensaje-error-zona"></p>
+        
+                        <div class="accordion-item">
+                         
+                            <h2 class="accordion-header" id="dos">
+                                <button
+                                class="accordion-button"
+                                type="button"
+                                data-bs-toggle="collapse"
+                                data-bs-target="#infoDos"
+                                aria-controls="infoDos"
+                                aria-expanded="false"
+                                >Selecciona al menos una Criatura</button>
+                            </h2>
+                      
+                            <div id="infoDos" class="accordion-collapse collapse" data-bs-parent="#colapsable">
+                                <div class="accordion-body">
+                                    <div id="componentes-criatura" class="componentes-aventura-elementos">
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+        
+                        <p id="mensaje-error-criatura"></p>
+
+                        <div class="accordion-item">
+                    
+                            <h2 class="accordion-header" id="tres">
+                                <button
+                                class="accordion-button"
+                                type="button"
+                                data-bs-toggle="collapse"
+                                data-bs-target="#infoTres"
+                                aria-controls="infoTres"
+                                aria-expanded="false"
+                                >Selecciona al menos un Objeto</button>
+                            </h2>
+                
+                            <div id="infoTres" class="accordion-collapse collapse" data-bs-parent="#colapsable">
+                                <div class="accordion-body">
+                                    <div id="componentes-objeto" class="componentes-aventura-elementos">
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+        
+                        <p id="mensaje-error-objeto"></p>
+
+                        <div class="accordion-item">
+                            
+                            <h2 class="accordion-header" id="cuatro">
+                                <button
+                                class="accordion-button"
+                                type="button"
+                                data-bs-toggle="collapse"
+                                data-bs-target="#infoCuatro"
+                                aria-controls="infoCuatro"
+                                aria-expanded="false"
+                                >Selecciona al menos un Personaje</button>
+                            </h2>
+                            
+                            <div id="infoCuatro" class="accordion-collapse collapse" data-bs-parent="#colapsable">
+                                <div class="accordion-body">
+                                    <div id="componentes-personaje" class="componentes-aventura-elementos">
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <p id="mensaje-error-personaje"></p>
+        
+                        <div class="accordion-item">
+                    
+                            <h2 class="accordion-header" id="cinco">
+                                <button
+                                class="accordion-button"
+                                type="button"
+                                data-bs-toggle="collapse"
+                                data-bs-target="#infoCinco"
+                                aria-controls="infoCinco"
+                                aria-expanded="false"
+                                >Selecciona al menos un Jefe</button>
+                            </h2>
+                        
+                            <div id="infoCinco" class="accordion-collapse collapse" data-bs-parent="#colapsable">
+                                <div class="accordion-body">
+                                    <div id="componentes-jefe" class="componentes-aventura-elementos">
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+        
+                        <p id="mensaje-error-jefe"></p>
+
+                    </div>
+        
+                </div>
+                <button class="boton" id="crearAventura">Crear Aventura</button>
+        </div>
+        <div class="ver-aventura">
+            <h3>Aventuras diseñadas</h3>
+            <div class="aventuras-diseñadas"><p>Todavía no diseñaste ninguna aventura</p></div>
+        </div>
+    </section>
+
+    <section class="call-to-action">
+        <button class="btnInstall boton">Instalar App</button>
+    </section>
+
+    <footer>
+        <div class="bg-dk">
+            <div class="container d-flex row align-items-center  justify-content-center pt-4 mx-auto">
+                    <picture class="col-12 col-lg-2 d-flex align-items-center justify-content-center mb-4 lg-mb-0">
+                            <img class="logoGrande" src="./img/darkestDungeonLogoGrande.png" alt="Logo Sitio">
+                    </picture>
+                    <ul class="d-flex flex-column col-12 col-lg-4 footerCentrado">
+                        <li class="li_item my-1">Lautaro Pappalardo</li>
+                        <li class="li_item my-1">Aplicaciones Web Progresivas</li>
+                        <li class="li_item my-1">DWN3BP 2023</li>
+                    </ul> 
+    
+                    <div class="col-12 col-lg-3 offset-lg-3 d-flex align-items-center justify-content-center">
+                        <nav class="row justify-content-center">
+                            <ul class="d-flex  mb-0">
+                                <li class="li_item mx-2">
+                                    <a href="https://facebook.com" target="_blank">
+                                        <figure>
+                                            <img class="redSocial" src="./img/pictures/facebookV2.png" alt="Facebook">
+                                        </figure>
+                                    </a>
+                                </li>
+                                <li class="li_item mx-2">
+                                    <a href="https://instagram.com" target="_blank">
+                                        <figure>
+                                            <img class="redSocial" src="./img/pictures/instagramV2.png" alt="Instagram">
+                                        </figure>
+                                    </a>
+                                </li>
+                                <li class="li_item mx-2">
+                                    <a href="https://twitter.com/" target="_blank">
+                                        <figure>
+                                            <img class="redSocial" src="./img/pictures/twitterV2.png" alt="Twitter">
+                                        </figure>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="derechos-de-autor col-12 d-flex align-items-center  justify-content-center my-2">Creado por Lautaro Pappalardo (2023) &#169;</div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="./js/main.js"></script>
+</body>
+</html>
