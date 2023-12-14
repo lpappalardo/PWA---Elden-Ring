@@ -161,8 +161,8 @@ window.addEventListener("DOMContentLoaded", function(){
                      </div>
                 </div>
             </div>`
-    
         })
+
     
         personajes.innerHTML = elementPersonajes;
         actualizarAgregarPersonaje();
@@ -262,11 +262,10 @@ window.addEventListener("DOMContentLoaded", function(){
 
     function agregarASubLista(e, subLista, listaGeneral){
         let idBoton = e.currentTarget.id;
-        console.log(idBoton);
+
         let elementoBoton = listaGeneral.filter(elemento => elemento.id == idBoton)[0];
-        console.log(elementoBoton);
+
         subLista.push(elementoBoton);
-        console.log(subLista);
     }
 
     // ----------- Funciones Quitar Elemento -----------
@@ -301,8 +300,6 @@ window.addEventListener("DOMContentLoaded", function(){
         let indice = indiceSubLista(idBoton, subLista);
 
         subLista.splice(indice, 1);
-
-        console.log(subLista);
     }
 
     // ----------- Agregar y Quitar Zona -----------
@@ -310,6 +307,11 @@ window.addEventListener("DOMContentLoaded", function(){
     let agregarZonas = [];
     let quitarZonas = [];
     let zonasSeleccionadas = [];
+    let contadorZonas = document.getElementById("contador-zona");
+
+    function actualizarContador(contador, lista) {
+        contador.innerHTML = lista.length
+    }
 
     function actualizarAgregarZona() {
 
@@ -334,6 +336,8 @@ window.addEventListener("DOMContentLoaded", function(){
         agregarEstilos(e);
 
         agregarASubLista(e, zonasSeleccionadas, zonasDisponibles);
+
+        actualizarContador(contadorZonas, zonasSeleccionadas);
     }
 
     function quitarUnaZona(e) {
@@ -341,6 +345,8 @@ window.addEventListener("DOMContentLoaded", function(){
         quitarEstilos(e);
 
         quitarDeSubLista(e, zonasSeleccionadas);
+
+        actualizarContador(contadorZonas, zonasSeleccionadas);
     }
 
     // ----------- Agregar y Quitar Criatura -----------
@@ -348,6 +354,7 @@ window.addEventListener("DOMContentLoaded", function(){
     let agregarCriaturas = [];
     let quitarCriaturas = [];
     let criaturasSeleccionadas = [];
+    let contadorCriaturas = document.getElementById("contador-criatura");
 
     function actualizarAgregarCriatura() {
 
@@ -372,6 +379,8 @@ window.addEventListener("DOMContentLoaded", function(){
         agregarEstilos(e);
 
         agregarASubLista(e, criaturasSeleccionadas, criaturaDisponibles);
+
+        actualizarContador(contadorCriaturas, criaturasSeleccionadas);
     }
 
     function quitarUnaCriatura(e) {
@@ -379,6 +388,8 @@ window.addEventListener("DOMContentLoaded", function(){
         quitarEstilos(e);
 
         quitarDeSubLista(e, criaturasSeleccionadas);
+
+        actualizarContador(contadorCriaturas, criaturasSeleccionadas);
     }
 
 
@@ -387,6 +398,7 @@ window.addEventListener("DOMContentLoaded", function(){
     let agregarObjetos = [];
     let quitarObjetos = [];
     let objetosSeleccionados = [];
+    let contadorObjetos = document.getElementById("contador-objeto");
 
     function actualizarAgregarObjeto() {
 
@@ -411,6 +423,8 @@ window.addEventListener("DOMContentLoaded", function(){
         agregarEstilos(e);
 
         agregarASubLista(e, objetosSeleccionados, objetosDisponibles);
+
+        actualizarContador(contadorObjetos, objetosSeleccionados);
     }
 
     function quitarUnObjeto(e) {
@@ -418,6 +432,8 @@ window.addEventListener("DOMContentLoaded", function(){
         quitarEstilos(e);
 
         quitarDeSubLista(e, objetosSeleccionados);
+
+        actualizarContador(contadorObjetos, objetosSeleccionados);
     }
 
     // ----------- Agregar y Quitar Personaje -----------
@@ -425,6 +441,7 @@ window.addEventListener("DOMContentLoaded", function(){
     let agregarPersonajes = [];
     let quitarPersonajes = [];
     let personajesSeleccionados = [];
+    let contadorPersonajes = document.getElementById("contador-personaje");
 
     function actualizarAgregarPersonaje() {
 
@@ -449,6 +466,8 @@ window.addEventListener("DOMContentLoaded", function(){
         agregarEstilos(e);
 
         agregarASubLista(e, personajesSeleccionados, personajesDisponibles);
+
+        actualizarContador(contadorPersonajes, personajesSeleccionados);
     }
 
     function quitarUnPersonaje(e) {
@@ -456,6 +475,8 @@ window.addEventListener("DOMContentLoaded", function(){
         quitarEstilos(e);
 
         quitarDeSubLista(e, personajesSeleccionados);
+
+        actualizarContador(contadorPersonajes, personajesSeleccionados);
     }
 
     // ----------- Agregar y Quitar Jefe -----------
@@ -463,6 +484,7 @@ window.addEventListener("DOMContentLoaded", function(){
     let agregarJefes= [];
     let quitarJefes = [];
     let jefesSeleccionados = [];
+    let contadorJefes = document.getElementById("contador-jefe");
 
     function actualizarAgregarJefe() {
 
@@ -487,6 +509,8 @@ window.addEventListener("DOMContentLoaded", function(){
         agregarEstilos(e);
 
         agregarASubLista(e, jefesSeleccionados, jefesDisponibles);
+
+        actualizarContador(contadorJefes, jefesSeleccionados);
     }
 
     function quitarUnJefe(e) {
@@ -494,6 +518,8 @@ window.addEventListener("DOMContentLoaded", function(){
         quitarEstilos(e);
 
         quitarDeSubLista(e, jefesSeleccionados);
+
+        actualizarContador(contadorJefes, jefesSeleccionados);
     }
 
     // ----------- Crear Aventura -----------
@@ -522,172 +548,145 @@ window.addEventListener("DOMContentLoaded", function(){
     let msgErrorPersonaje= document.getElementById('mensaje-error-personaje');
     let msgErrorJefe = document.getElementById('mensaje-error-jefe');
 
+    let indiceBase = 0; 
+
     function cargarAventura() {
 
         msgErrorZona.innerHTML = ""; 
-        msgErrorCriatura.innerHTML = ""; 
-        msgErrorObjeto.innerHTML = ""; 
-        msgErrorPersonaje.innerHTML = ""; 
-        msgErrorJefe.innerHTML = ""; 
+        msgErrorZona.style.display = "none";
 
-        if(zonasSeleccionadas.length < 1){
-            console.log('Debe cargar al menos 1 zona');
-            msgErrorZona.innerHTML = 'Debe cargar al menos 1 zona';
-        } else if (criaturasSeleccionadas.length < 1) {
-            console.log('Debe cargar al menos 1 criatura');
-            msgErrorCriatura.innerHTML = 'Debe cargar al menos 1 criatura';
-        } else if (objetosSeleccionados.length < 1) {
-            console.log('Debe cargar al menos 1 objeto');
-            msgErrorObjeto.innerHTML = 'Debe cargar al menos 1 objeto';
-        } else if (personajesSeleccionados.length < 1) {
-            console.log('Debe cargar al menos 1 personaje');
-            msgErrorPersonaje.innerHTML = 'Debe cargar al menos 1 personaje';
-        } else if (jefesSeleccionados.length < 1) {
-            console.log('Debe cargar al menos 1 jefe');
-            msgErrorJefe.innerHTML = 'Debe cargar al menos 1 jefe';
+        msgErrorCriatura.innerHTML = ""; 
+        msgErrorCriatura.style.display = "none";
+
+        msgErrorObjeto.innerHTML = ""; 
+        msgErrorObjeto.style.display = "none";
+
+        msgErrorPersonaje.innerHTML = ""; 
+        msgErrorPersonaje.style.display = "none";
+
+        msgErrorJefe.innerHTML = ""; 
+        msgErrorJefe.style.display = "none";
+
+        if(!aventuraCompleta()){
+
+            if(zonasSeleccionadas.length < 1){
+           
+                msgErrorZona.innerHTML = 'Debe cargar al menos 1 zona';
+                msgErrorZona.style.display = "block";
+            } 
+            
+            if (criaturasSeleccionadas.length < 1) {
+                
+                msgErrorCriatura.innerHTML = 'Debe cargar al menos 1 criatura';
+                msgErrorCriatura.style.display = "block";
+            }
+            
+            if (objetosSeleccionados.length < 1) {
+             
+                msgErrorObjeto.innerHTML = 'Debe cargar al menos 1 objeto';
+                msgErrorObjeto.style.display = "block";
+            }
+            
+            if (personajesSeleccionados.length < 1) {
+            
+                msgErrorPersonaje.innerHTML = 'Debe cargar al menos 1 personaje';
+                msgErrorPersonaje.style.display = "block";
+            }
+            
+            if (jefesSeleccionados.length < 1) {
+            
+                msgErrorJefe.innerHTML = 'Debe cargar al menos 1 jefe';
+                msgErrorJefe.style.display = "block";
+            } 
+
         } else {
-            let indiceAventura = aventurasCargadas.length + 1;
+
+            let indiceAventura = 0;
+            if(aventurasCargadas.length == 0 && indiceBase == 0){
+                indiceAventura = aventurasCargadas.length + 1;
+            } else {
+                indiceAventura = indiceBase + aventurasCargadas.length + 1;
+            }
             let unaAventura = new Aventura(indiceAventura, zonasSeleccionadas, criaturasSeleccionadas,objetosSeleccionados, personajesSeleccionados, jefesSeleccionados);
 
             aventurasCargadas.push(unaAventura)
-            actualizarAventuras();
+            agregarAventura();
+
         }
     }
 
-    aventuras = document.querySelectorAll(".aventuras-diseñadas")[0];
+    function aventuraCompleta() {
+        return zonasSeleccionadas.length >= 1 && criaturasSeleccionadas.length >= 1 && objetosSeleccionados.length >= 1 && personajesSeleccionados.length >= 1 && jefesSeleccionados.length >= 1;
+    }
+
+    function agregarAventura() {
+        actualizarAventuras();
+        localStorage.setItem("aventuras-guardadas", JSON.stringify(aventurasCargadas));
+    }
+
+    let mensajeAventuras = document.querySelector(".mensaje-aventuras");
+    let contenedorAventuras = document.querySelector(".container-aventuras")
+    let aventuras = document.querySelector(".lista-aventuras");
 
     function actualizarAventuras() {
+
+        if(aventurasCargadas.length >= 1) {
+            contenedorAventuras.style.display = "block";
+            mensajeAventuras.style.display = "none";
+
+        } else {
+            contenedorAventuras.style.display = "none";
+            mensajeAventuras.style.display = "block";
+        }
 
         let elementAventuras = ""
 
         aventurasCargadas.forEach((aventura) => {
 
-                let zonasDeAventura = "";
-                let criaturasDeAventura = "";
-                let objetosDeAventura = "";
-                let personajesDeAventura = "";
-                let jefesDeAventura = "";
-
                 let listaZonas = aventura.zonas;
-                let largo = aventura.zonas.length;
-                console.log(largo);
-
-                for (const zona of listaZonas) {
-                    zonasDeAventura += `
-                    <div class="card">
-                        <img src="${zona.imagen}" class="card-img-top" alt="${zona.nombre}">
-                        <div class="card-body">
-                            <h5 class="card-title">${zona.nombre}</h5>
-                            <p class="card-text">Descripción: ${zona.descripcionOFrase}</p>
-                        </div>
-                    </div>`
-                }
 
                 let listaCriaturas = aventura.criaturas;
-                listaCriaturas.forEach((criatura) => {
-
-                criaturasDeAventura += `
-                <div class="card">
-                    <img src="${criatura.imagen}" class="card-img-top" alt="${criatura.nombre}">
-                    <div class="card-body">
-                         <h5 class="card-title">${criatura.nombre}</h5>
-                         <p class="card-text">Descripción: ${criatura.descripcionOFrase}</p>
-                    </div>
-                </div>`
-            
-                })
 
                 let listaObjetos = aventura.objetos;
-                listaObjetos.forEach((objeto) => {
-
-                objetosDeAventura += `
-                <div class="card">
-                    <img src="${objeto.imagen}" class="card-img-top" alt="${objeto.nombre}">
-                    <div class="card-body">
-                         <h5 class="card-title">${objeto.nombre}</h5>
-                         <p class="card-text">Descripción: ${objeto.descripcionOFrase}</p>
-                    </div>
-                </div>`
-            
-                })
 
                 let listaPersonajes = aventura.personajes;
-                listaPersonajes.forEach((personaje) => {
-
-                personajesDeAventura += `
-                <div class="card">
-                    <img src="${personaje.imagen}" class="card-img-top" alt="${personaje.nombre}">
-                    <div class="card-body">
-                         <h5 class="card-title">${personaje.nombre}</h5>
-                         <p class="card-text">Frase: ${personaje.descripcionOFrase}</p>
-                    </div>
-                </div>`
-            
-                })
 
                 let listaJefes = aventura.jefes;
-                listaJefes.forEach((jefe) => {
-
-                jefesDeAventura += `
-                <div class="card">
-                    <img src="${jefe.imagen}" class="card-img-top" alt="${jefe.nombre}">
-                    <div class="card-body">
-                         <h5 class="card-title">${jefe.nombre}</h5>
-                         <p class="card-text">Descripción: ${jefe.descripcionOFrase}</p>
-                    </div>
-                </div>`
-            
-                })
 
                 elementAventuras += `
-                        <div class="aventura">
-                            <h3>
-                                Aventura ${aventura.id}
-                            </h3>
+                    <div class="card adventure-item">
+                        <h4>
+                            Aventura ${aventura.id}
+                        </h4>
+                        <div class="body-card">
                             <div>
-                                <h2>
-                                    Zona/s Selecionada/s
-                                </h2>
-                                <div class="componentes-aventura-elementos">
-                                    ${zonasDeAventura}
-                                </div>
+                                <span>Zona/s:</span> ${listaZonas.length}
                             </div>
                             <div>
-                                <h2>
-                                    Criatura/s Selecionada/s
-                                </h2>
-                                <div class="componentes-aventura-elementos">
-                                    ${criaturasDeAventura}
-                                </div>
+                                <span>Criatura/s:</span> ${listaCriaturas.length}
                             </div>
                             <div>
-                                <h2>
-                                    Objeto/s Selecionado/s
-                                </h2>
-                                <div class="componentes-aventura-elementos">
-                                    ${objetosDeAventura}
-                                </div>
+                                <span>Objeto/s:</span> ${listaObjetos.length}
                             </div>
                             <div>
-                                <h2>
-                                    Personajes/s Selecionado/s
-                                </h2>
-                                <div class="componentes-aventura-elementos">
-                                    ${personajesDeAventura}
-                                </div>
+                                <span>Personajes/s:</span> ${listaPersonajes.length}
                             </div>
                             <div>
-                                <h2>
-                                    Jefe/s Selecionado/s
-                                </h2>
-                                <div class="componentes-aventura-elementos">
-                                    ${jefesDeAventura}
-                                </div>
+                                <span>Jefe/s:</span> ${listaJefes.length}
                             </div>
-                        </div>`
+                        </div>
+                        <button id="${aventura.id}" class="boton btn-mostrar">Ver Detalle</button>
+                        <button id="${aventura.id}" class="boton btn-eliminar">Eliminar</button>
+                    </div>
+                `
                 });
 
         aventuras.innerHTML = elementAventuras;
+
+        actualizarEliminarAventuras();
+        actualizarMostrarAventuras();
+
+        
 
         agregarZonas.forEach((boton) => {
             
@@ -743,11 +742,384 @@ window.addEventListener("DOMContentLoaded", function(){
             boton.setAttribute('class', 'boton quitarJefe escondido');
         })
 
+        // Originalmente limpiar aventura iba aca pero lo tuve que mover de lugar hacia la notificacion 
+        // de Creacion Aventura porque con la validacion que utilizada acaba limpiando los campos utilizados 
+        // para la creacion de la aventura antes de se generara la notificacion
+        // limpiarAventura();
+    }
+
+    function limpiarAventura() {
         zonasSeleccionadas = [];
+        actualizarContador(contadorZonas, zonasSeleccionadas);
         criaturasSeleccionadas = [];
+        actualizarContador(contadorCriaturas, criaturasSeleccionadas);
         objetosSeleccionados = [];
+        actualizarContador(contadorObjetos, objetosSeleccionados);
         personajesSeleccionados = [];
+        actualizarContador(contadorPersonajes, personajesSeleccionados);
         jefesSeleccionados = [];
+        actualizarContador(contadorJefes, jefesSeleccionados);
+    }
+ 
+     // ----------- Abrir/Cerrar Modales -----------
+
+    //  ELIMINAR AVENTURA
+
+     function abrirModalEliminar (e) {
+    
+        let ventanaEliminar = document.getElementById('ventanaEliminar');
+        ventanaEliminar.setAttribute('class', 'modal mostrar-modal');
+
+        let contenido = document.getElementsByClassName('contenido-modal-cerrar')[0];
+        contenido.innerHTML = 'Aventura ' +  e.currentTarget.id;
+
+        botonEliminar.setAttribute('id', e.currentTarget.id);
+    }
+    
+    const cerrarModalEliminar = () => {
+    
+        let ventanaEliminar = document.getElementById('ventanaEliminar');
+        ventanaEliminar.setAttribute('class', 'modal');
+    }
+
+    //  MOSTRAR AVENTURA
+
+    function abrirModalMostrar (e) {
+    
+        let ventanaMostrar = document.getElementById('ventanaMostrar');
+        ventanaMostrar.setAttribute('class', 'modal mostrar-modal');
+
+        let tituloModal = document.getElementsByClassName('titulo-modal')[0];
+        let contenidoModalMostrar = document.getElementsByClassName('contenido-modal-mostrar')[0];
+
+        let zonasDeAventura = "";
+        let criaturasDeAventura = "";
+        let objetosDeAventura = "";
+        let personajesDeAventura = "";
+        let jefesDeAventura = "";
+
+        let detalleAventura = ""
+
+        aventurasCargadas.forEach((aventura) => {
+
+            if(aventura.id == e.currentTarget.id){
+
+                let listaZonas = aventura.zonas;
+
+                let listaCriaturas = aventura.criaturas;
+
+                let listaObjetos = aventura.objetos;
+
+                let listaPersonajes = aventura.personajes;
+
+                let listaJefes = aventura.jefes;
+
+                for (const zona of listaZonas) {
+                    zonasDeAventura += `
+                    <div class="card">
+                        <img src="${zona.imagen}" class="card-img-top" alt="${zona.nombre}">
+                        <div class="card-body">
+                            <h5 class="card-title">${zona.nombre}</h5>
+                            <p class="card-text">Descripción: ${zona.descripcionOFrase}</p>
+                        </div>
+                    </div>`
+                }
+
+                listaCriaturas.forEach((criatura) => {
+
+                criaturasDeAventura += `
+                <div class="card">
+                    <img src="${criatura.imagen}" class="card-img-top" alt="${criatura.nombre}">
+                    <div class="card-body">
+                         <h5 class="card-title">${criatura.nombre}</h5>
+                         <p class="card-text">Descripción: ${criatura.descripcionOFrase}</p>
+                    </div>
+                </div>`
+            
+                })
+
+                listaObjetos.forEach((objeto) => {
+
+                objetosDeAventura += `
+                <div class="card">
+                    <img src="${objeto.imagen}" class="card-img-top" alt="${objeto.nombre}">
+                    <div class="card-body">
+                        <h5 class="card-title">${objeto.nombre}</h5>
+                        <p class="card-text">Descripción: ${objeto.descripcionOFrase}</p>
+                    </div>
+                </div>`
+            
+                })
+
+
+                listaPersonajes.forEach((personaje) => {    
+
+                personajesDeAventura += `
+                <div class="card">
+                    <img src="${personaje.imagen}" class="card-img-top" alt="${personaje.nombre}">
+                    <div class="card-body">
+                        <h5 class="card-title">${personaje.nombre}</h5>
+                        <p class="card-text">Frase: ${personaje.descripcionOFrase}</p>
+                    </div>
+                </div>`
+            
+                })    
+
+
+                listaJefes.forEach((jefe) => {
+
+                    jefesDeAventura += `
+                    <div class="card">
+                        <img src="${jefe.imagen}" class="card-img-top" alt="${jefe.nombre}">
+                        <div class="card-body">
+                            <h5 class="card-title">${jefe.nombre}</h5>
+                            <p class="card-text">Descripción: ${jefe.descripcionOFrase}</p>
+                        </div>
+                    </div>`
+                
+                })
+
+            tituloModal.innerHTML = 'Aventura ' + aventura.id;
+            
+            detalleAventura += `
+                <div class="detalle-aventura">
+                    <div>
+                        <h4>
+                            Zona/s Selecionada/s
+                        </h4>
+                        <div class="componentes-aventura-elementos">
+                            ${zonasDeAventura}
+                        </div>
+                    </div>
+                    <div>
+                        <h4>
+                            Criatura/s Selecionada/s
+                        </h4>
+                        <div class="componentes-aventura-elementos">
+                            ${criaturasDeAventura}
+                        </div>
+                    </div>
+                    <div>
+                        <h4>
+                            Objeto/s Selecionado/s
+                        </h4>
+                        <div class="componentes-aventura-elementos">
+                            ${objetosDeAventura}
+                        </div>
+                    </div>
+                    <div>
+                        <h4>
+                            Personajes/s Selecionado/s
+                        </h4>
+                        <div class="componentes-aventura-elementos">
+                            ${personajesDeAventura}
+                        </div>
+                    </div>
+                    <div>
+                        <h4>
+                            Jefe/s Selecionado/s
+                        </h4>
+                        <div class="componentes-aventura-elementos">
+                            ${jefesDeAventura}
+                        </div>
+                    </div>
+                </div>`
+            }
+        })
+
+        contenidoModalMostrar.innerHTML = detalleAventura;
+    }
+    
+    const cerrarModalMostrar = () => {
+    
+        let ventanaMostrar = document.getElementById('ventanaMostrar');
+        ventanaMostrar.setAttribute('class', 'modal');
+    }
+ 
+    // ----------- Eliminar Aventura -----------
+
+    let eliminarAventuras = [];
+
+    function actualizarEliminarAventuras() {
+
+        eliminarAventuras = document.querySelectorAll(".btn-eliminar");
+    
+        eliminarAventuras.forEach(boton => {
+            boton.addEventListener("click", abrirModalEliminar);
+        });
+    }
+
+    function eliminarAventura(e) {
+
+        quitarDeSubLista(e, aventurasCargadas);
+
+        cerrarModalEliminar();
+
+        actualizarAventuras();
+
+        localStorage.setItem("aventuras-guardadas", JSON.stringify(aventurasCargadas));
+        
+        indiceBase++;
+        localStorage.setItem("indice-guardado", JSON.stringify(indiceBase));
+    }
+
+    let botonCerrar1 = document.getElementsByClassName('cerrar-modal')[0];
+    let botonCerrar2 = document.getElementsByClassName('boton-cerrar-modal')[0];
+
+    let botonEliminar = document.getElementsByClassName('boton-eliminar-aventura')[0];
+
+    botonEliminar.addEventListener("click", eliminarAventura);
+    botonCerrar1.addEventListener("click", cerrarModalEliminar);
+    botonCerrar2.addEventListener("click", cerrarModalEliminar);
+
+    // ----------- Mostrar Aventura -----------
+
+    let mostrarAventuras = [];
+
+    function actualizarMostrarAventuras() {
+
+        mostrarAventuras = document.querySelectorAll(".btn-mostrar");
+    
+        mostrarAventuras.forEach(boton => {
+            boton.addEventListener("click", abrirModalMostrar);
+        });
+    }
+
+    let botonCerrarMostrar = document.getElementsByClassName('cerrar-modal-mostrar')[0];
+    let botonCerrarMostrar2 = document.getElementsByClassName('boton-cerrar-modal-mostrar')[0];
+
+    botonCerrarMostrar.addEventListener("click", cerrarModalMostrar);
+    botonCerrarMostrar2.addEventListener("click", cerrarModalMostrar);
+
+    // ----------- NOTIFICACIONES --------------
+    if(window.Notification){
+        if(Notification.permission !== 'denied'){
+            setTimeout(function(){
+                Notification.requestPermission()
+                .then(permiso => {
+                    if(permiso === 'granted'){
+                        console.log('La notificaciones han sido aceptadas')
+                    }else{
+                        console.log('Las notificaciones han sido rechazadas')
+                    }
+                })
+            }, 5000)
+        }
+    }
+
+    if(creacionAventura){
+        creacionAventura.addEventListener('click', () => {
+            Notification.requestPermission().then(permiso=>{
+                if(permiso === 'granted' && aventuraCompleta()){
+                    console.log('aventura creada');
+                    navigator.serviceWorker.ready.then((registration) => {
+                        registration.showNotification("Creación de aventura", {
+                            body: "La aventura ha sido creada",
+                            icon: '../icons/icon-192x192.png',
+                            tag: 1,
+                            vibrate: [500,300,500,300,300,100],
+                            actions:[
+                                {
+                                    action: 1,
+                                    icon: 'icons/icon-192x192.png',
+                                    title: 'Aceptar'
+                                }
+                            ]
+                        });
+                      });
+                      limpiarAventura();
+                }
+            })
+        })
+    }
+
+    if(botonEliminar){
+        botonEliminar.addEventListener('click', () => {
+            Notification.requestPermission().then(permiso=>{
+                if(permiso === 'granted'){
+                    console.log('aventura eliminada');
+                    navigator.serviceWorker.ready.then((registration) => {
+                        registration.showNotification("Eliminación de aventura", {
+                            body: "La aventura ha sido eliminada",
+                            icon: '../icons/icon-192x192.png',
+                            tag: 2,
+                            vibrate: [500,300,500,300,300,100],
+                            actions:[
+                                {
+                                    action: 1,
+                                    icon: 'icons/icon-192x192.png',
+                                    title: 'Aceptar'
+                                }
+                            ]
+                        });
+                      });
+                }
+            })
+        })
+    }
+
+    // --------------online/ofline -----------------
+
+    let header = this.document.querySelector('.navbar');
+    let footer = this.document.querySelector('.footer-pwa');
+
+    let OnLineStatus = () => {
+
+        if(navigator.onLine){
+            header.setAttribute('class', 'navbar navbar-expand-lg bg-dk-green');
+            footer.setAttribute('class', 'footer-pwa bg-dk-green');
+            
+        }else{
+            header.setAttribute('class', 'navbar navbar-expand-lg bg-dgr');
+            footer.setAttribute('class', 'footer-pwa bg-dgr');
+        }
+    }
+
+    OnLineStatus();
+
+    window.addEventListener('online', function(){
+        OnLineStatus();
+    })
+
+    window.addEventListener('offline', function(){
+        OnLineStatus();
+    })
+
+    // ------------ COMPARTIR APP ----------------
+
+    let btnShare = document.querySelector('.btnShare');
+    if(btnShare != undefined){
+        if(navigator.share){
+            btnShare.addEventListener('click', (e) => {
+                let dataShare = {
+                    title: 'Elden Ring', 
+                    text: 'Aventuras en el mundo de Elden Ring',
+                    url: 'http://localhost/lpappalardo/index.html'
+                }
+                navigator.share(dataShare)
+                .then(() => {
+                    console.log('Compartir la app')
+                })
+            })
+        }else{
+            console.log('no es compatible');
+            btnShare.style.display = "none";
+        }
+    }
+
+
+    // ------------ LOCAL STORAGE ----------------
+
+    let aventurasGuardadasLS = localStorage.getItem("aventuras-guardadas");
+    let indiceGuardadoLS = localStorage.getItem("indice-guardado");
+
+    if (aventurasGuardadasLS) {
+        aventurasCargadas = JSON.parse(aventurasGuardadasLS);
+        indiceBase = JSON.parse(indiceGuardadoLS);
+        actualizarAventuras();
+    } else {
+        aventurasCargadas = [];
+        indiceBase = 0;
     }
 
 })

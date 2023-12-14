@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="manifest" href="./manifest.json">
+    <title>Elden Ring</title>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg bg-dk-green">
+            <div class="container-fluid container">
+                <h1 class="my-auto" id="logo">Elden Ring</h1>
+
+                <button 
+                type="button"
+                class="navbar-toggler"
+                data-bs-toggle="collapse"
+                data-bs-target="#menu"
+                aria-controls="menu"
+                aria-expanded="false"
+                aria-label="Boton hamburguesa"
+                >
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div id="menu" class="collapse navbar-collapse">
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><a class="nav-link" href="./index.html">Volver</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section id="seccion-servicio" class="container seccion">
+        <div class="crear-aventura">
+            <h3>Diseña tu propia aventura</h3>
+            <p>Una aventura debe tener seleccionada al menos 1 Zona, 1 Critaura, 1 Objeto, 1 Personaje y un 1 Jefe.</p>
+                <div class="componentes-aventura">
+                    <div class="noParent">
+        
+                        <div class="accordion-item">        
+                            <h2 class="accordion-header" id="uno">
+                                <button
+                                class="accordion-button"
+                                type="button"
+                                data-bs-toggle="collapse"
+                                data-bs-target="#infoUno"
+                                aria-controls="infoUno"
+                                aria-expanded="false"
+                                >Selecciona al menos una Zona
+                            
+                                <span class="contador-elemento" id="contador-zona">0</span>
+                                </button>
+                            </h2>
+                    
+                            <div id="infoUno" class="accordion-collapse collapse" data-bs-parent="#colapsable">
+                                <div class="accordion-body">
+                                    <div id="componentes-zona" class="componentes-aventura-elementos">
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <p id="mensaje-error-zona" class=" msg-err"></p>
+        
+                        <div class="accordion-item">
+                         
+                            <h2 class="accordion-header" id="dos">
+                                <button
+                                class="accordion-button"
+                                type="button"
+                                data-bs-toggle="collapse"
+                                data-bs-target="#infoDos"
+                                aria-controls="infoDos"
+                                aria-expanded="false"
+                                >Selecciona al menos una Criatura
+                            
+                                <span class="contador-elemento" id="contador-criatura">0</span>
+                                </button>
+                            </h2>
+                      
+                            <div id="infoDos" class="accordion-collapse collapse" data-bs-parent="#colapsable">
+                                <div class="accordion-body">
+                                    <div id="componentes-criatura" class="componentes-aventura-elementos">
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+        
+                        <p id="mensaje-error-criatura" class=" msg-err"></p>
+
+                        <div class="accordion-item">
+                    
+                            <h2 class="accordion-header" id="tres">
+                                <button
+                                class="accordion-button"
+                                type="button"
+                                data-bs-toggle="collapse"
+                                data-bs-target="#infoTres"
+                                aria-controls="infoTres"
+                                aria-expanded="false"
+                                >Selecciona al menos un Objeto
+                            
+                                <span class="contador-elemento" id="contador-objeto">0</span>
+                                </button>
+                            </h2>
+                
+                            <div id="infoTres" class="accordion-collapse collapse" data-bs-parent="#colapsable">
+                                <div class="accordion-body">
+                                    <div id="componentes-objeto" class="componentes-aventura-elementos">
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+        
+                        <p id="mensaje-error-objeto" class=" msg-err"></p>
+
+                        <div class="accordion-item">
+                            
+                            <h2 class="accordion-header" id="cuatro">
+                                <button
+                                class="accordion-button"
+                                type="button"
+                                data-bs-toggle="collapse"
+                                data-bs-target="#infoCuatro"
+                                aria-controls="infoCuatro"
+                                aria-expanded="false"
+                                >Selecciona al menos un Personaje
+                            
+                                <span class="contador-elemento" id="contador-personaje">0</span>
+                                </button>
+                            </h2>
+                            
+                            <div id="infoCuatro" class="accordion-collapse collapse" data-bs-parent="#colapsable">
+                                <div class="accordion-body">
+                                    <div id="componentes-personaje" class="componentes-aventura-elementos">
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <p id="mensaje-error-personaje" class=" msg-err"></p>
+        
+                        <div class="accordion-item">
+                    
+                            <h2 class="accordion-header" id="cinco">
+                                <button
+                                class="accordion-button"
+                                type="button"
+                                data-bs-toggle="collapse"
+                                data-bs-target="#infoCinco"
+                                aria-controls="infoCinco"
+                                aria-expanded="false"
+                                >Selecciona al menos un Jefe
+                            
+                                <span class="contador-elemento" id="contador-jefe">0</span>
+                                </button>
+                            </h2>
+                        
+                            <div id="infoCinco" class="accordion-collapse collapse" data-bs-parent="#colapsable">
+                                <div class="accordion-body">
+                                    <div id="componentes-jefe" class="componentes-aventura-elementos">
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+        
+                        <p id="mensaje-error-jefe" class=" msg-err"></p>
+
+                    </div>
+        
+                </div>
+                <button class="boton" id="crearAventura">Crear Aventura</button>
+        </div>
+        <div class="ver-aventura">
+            <h3 class="ver-aventura-titulo">Aventuras diseñadas</h3>
+            <div class="container-aventuras">
+                <div class="lista-aventuras"></div>
+            </div>
+            <div class="mensaje-aventuras"><p>Todavía no diseñaste ninguna aventura</p></div>
+        </div>
+    </section>
+
+    <section class="section-share">
+        <button class="btnShare boton">Compartir App</button>
+    </section>
+
+    <section class="call-to-action">
+        <button class="btnInstall boton">Instalar App</button>
+    </section>
+
+    <footer>
+        <div class="footer-pwa bg-dk-green">
+            <div class="container d-flex row align-items-center  justify-content-center pt-4 mx-auto">
+                    <picture class="col-12 col-lg-2 d-flex align-items-center justify-content-center mb-4 lg-mb-0">
+                            <img class="logoGrande" src="./img/darkestDungeonLogoGrande.png" alt="Logo Sitio">
+                    </picture>
+                    <ul class="d-flex flex-column col-12 col-lg-4 footerCentrado">
+                        <li class="li_item my-1">Lautaro Pappalardo</li>
+                        <li class="li_item my-1">Aplicaciones Web Progresivas</li>
+                        <li class="li_item my-1">DWN3BP 2023</li>
+                    </ul> 
+    
+                    <div class="col-12 col-lg-3 offset-lg-3 d-flex align-items-center justify-content-center">
+                        <nav class="row justify-content-center">
+                            <ul class="d-flex  mb-0">
+                                <li class="li_item mx-2">
+                                    <a href="https://facebook.com" target="_blank">
+                                        <figure>
+                                            <img class="redSocial" src="./img/pictures/facebookV2.png" alt="Facebook">
+                                        </figure>
+                                    </a>
+                                </li>
+                                <li class="li_item mx-2">
+                                    <a href="https://instagram.com" target="_blank">
+                                        <figure>
+                                            <img class="redSocial" src="./img/pictures/instagramV2.png" alt="Instagram">
+                                        </figure>
+                                    </a>
+                                </li>
+                                <li class="li_item mx-2">
+                                    <a href="https://twitter.com/" target="_blank">
+                                        <figure>
+                                            <img class="redSocial" src="./img/pictures/twitterV2.png" alt="Twitter">
+                                        </figure>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="derechos-de-autor col-12 d-flex align-items-center  justify-content-center my-2">Creado por Lautaro Pappalardo (2023) &#169;</div>
+            </div>
+        </div>
+    </footer>
+
+    <section id="ventanaEliminar" class="modal">
+        <div class="modal-container">
+            <button class="cerrar-modal">x</button>
+            <h5 class="modal-cerrar-titulo">¿Esta seguro que desea eliminar la siguiente aventura?</h5>
+            <p class="contenido-modal-cerrar"></p>
+            <div class="botones-modal">
+                <button class="boton boton-eliminar-aventura">Si</button>
+                <button class="boton boton-cerrar-modal">No</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="ventanaMostrar" class="modal">
+        <div class="modal-container modal-scroll">
+            <button class="cerrar-modal-mostrar">x</button>
+            <h3 class="titulo-modal"></h3>
+            <div class="contenido-modal-mostrar"></div>
+            <button class="boton boton-cerrar-modal-mostrar">Cerrar</button>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="./js/main.js"></script>
+</body>
+</html>

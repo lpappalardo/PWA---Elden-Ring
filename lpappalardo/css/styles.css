@@ -5,7 +5,7 @@
     --clr-white: rgb(237, 237, 237);
     --clr-black: rgb(21, 21, 21);
     --clr-black-2: #0e1e1e;
-    --clr-red: rgb(131, 4, 4);
+    --clr-red: rgb(106, 2, 2);
 
 }
 
@@ -22,6 +22,10 @@ img {
 
 .bg-dk-green {
     background-color: var(--clr-secondary);
+}
+
+.bg-dgr {
+    background-color: var(--clr-red);
 }
 
 .bg-dk {
@@ -79,6 +83,9 @@ img {
     background-color: var(--clr-main);
 }
 
+.boton-cerrar-modal-mostrar,
+.boton-cerrar-modal,
+.btn-eliminar,
 .quitarJefe,
 .quitarPersonaje,
 .quitarObjeto,
@@ -92,15 +99,20 @@ img {
 }
 
 .borde-dorado {
-    border: 2px solid var(--clr-main);
+    border: 4px solid var(--clr-main);
 }
 
-#mensaje-error-zona,
-#mensaje-error-criatura,
-#mensaje-error-objeto,
-#mensaje-error-personaje,
-#mensaje-error-jefe {
-    color: var(--clr-red);
+.boton-cerrar-modal-mostrar {
+    display: flex;
+}
+
+.msg-err {
+    display: none;
+    border-radius: 4px;
+    padding: 4px;
+    margin-top: 1.2rem;
+    background-color: var(--clr-red);
+    color: var(--clr-white);
 }
 
 #servicio {
@@ -152,6 +164,10 @@ img {
     #servicio {
         margin-left: auto;
     }
+}
+
+.service-link:hover {
+    color: var(--clr-secondary);
 }
 
 /* BANNER */
@@ -262,7 +278,7 @@ img {
     color: var(--clr-white);
 }
 
-.accordion-item + .accordion-item {
+.msg-err + .accordion-item {
     margin-top: 1rem;
 }
 
@@ -271,7 +287,7 @@ img {
     grid-template-columns: repeat(1, 1fr);
     row-gap: 2rem;
     column-gap: 1rem;
-    margin: 3rem 0;
+    margin: 1rem 0 2rem 0;
 }
 
 @media screen and (min-width: 701px) {
@@ -288,7 +304,21 @@ img {
     }
 }
 
+.detalle-aventura {
+    padding: 1.rem;
+    /* overflow-y: scroll; */
+}
+
+.detalle-aventura h4 {
+    font-weight: 600;
+}
+
 /* SECCION 2 */
+
+.section-share {
+    display: flex;
+    padding: 4rem;
+}
 
 .call-to-action {
     background-image: url(../img/pictures/elden-ring-banner-2.png);
@@ -310,19 +340,21 @@ img {
     margin-bottom: 4rem;
     font-weight: 600;
     font-size: 2.6rem;
+    text-align: center;
 }
 
 .crear-aventura .boton {
     margin-bottom: 3rem;
 }
 
-.ver-aventura h3 {
+.ver-aventura-titulo {
     font-size: 2rem;
     font-weight: 600;
     text-align: center;
+    margin-bottom: 2rem;
 }
 
-.ver-aventura .aventuras-diseñadas {
+.ver-aventura .mensaje-aventuras {
    margin: 3rem 0 2rem 0; 
    text-align: center;
 }
@@ -353,7 +385,7 @@ a .redSocial:hover{
     }
 }
 
-/* AVENTURAS */
+/* CREACION AVENTURAS */
 
 .aventura {
     margin: 2rem 0;
@@ -367,4 +399,152 @@ a .redSocial:hover{
 .aventura h3 {
     color: var(--clr-main);
     margin-bottom: 1rem;
+}
+
+.accordion-button {
+    position: relative;
+}
+
+.contador-elemento {
+    position: absolute;
+    right: 24px;
+    width: 24px;
+    height: 24px;
+    background-color: var(--clr-main);
+    color: var(--clr-white);
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* LISTA AVENTURAS */
+
+.lista-aventuras {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 2rem;
+}
+
+@media screen and (min-width: 701px) {
+
+    .lista-aventuras {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (min-width: 960px) {
+
+    .lista-aventuras {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.adventure-item {
+    padding: 1.4rem;
+}
+
+.adventure-item .boton {
+    min-width: 142px;
+}
+
+.adventure-item  h4 {
+    text-align: center;
+    font-weight: 600;
+    padding: 0.5rem;
+    background-color: var(--clr-gray);
+}
+
+.adventure-item .body-card {
+    padding: 1rem;
+    background-color: var(--clr-gray);
+}
+
+.body-card {
+    margin-bottom: 1rem;
+}
+
+.boton + .boton {
+    margin-top: 1rem;
+}
+
+/* MODALS */
+
+.modal{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #111111bd;
+    display: flex;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.mostrar-modal{
+    opacity: 1;
+    pointer-events: unset;
+}
+
+.modal-container{
+    margin: auto;
+    width: 90%;
+    max-width: 800px;
+    max-height: 90%;
+    background-color: var(--clr-white);
+    border-radius: 4px;
+    padding: 2rem 1.6rem;
+    color: var(--clr-black);
+    position: relative;
+    overscroll-behavior: contain;
+}
+
+.modal-scroll {
+    overflow-y: scroll;
+}
+
+.modal-container h3 {
+    margin-bottom: 1rem;
+}
+
+.botones-modal {
+    display: flex;
+}
+
+.cerrar-modal-mostrar,
+.cerrar-modal {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    width: 24px;
+    height: 24px;
+    line-height: 24px;
+    display: inline-block;
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--clr-red);
+    color: var(--clr-white);
+    border: none;
+    border-radius: 2px;
+}
+
+.cerrar-modal-mostrar,
+.cerrar-modal:hover {
+    opacity: 0.8;
+}
+
+.contenido-modal-cerrar {
+    text-align: center;
+    font-weight: 600;
+    font-size: 2rem;
+}
+
+.modal-cerrar-titulo {
+    text-align: center;
+}
+
+.titulo-modal {
+    text-align: center;
+    font-weight: 600;
 }

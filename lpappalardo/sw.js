@@ -2,6 +2,7 @@ const cacheName = 'elden-ring-files';
 const assets = [
     "/",
     "index.html",
+    "aventura.html",
     "css/bootstrap.min.css",
     "css/styles.css",
     "js/bootstrap.bundle.min.js",

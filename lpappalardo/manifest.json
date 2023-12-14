@@ -3,7 +3,7 @@
     "background_color" : "#162627",
     "display":  "fullscreen",
     "scope": "/lpappalardo/",
-    "start_url": "/lpappalardo/index.html",
+    "start_url": "/lpappalardo/aventura.html",
     "name": "Elden Ring App",
     "short_name": "ER App",
     "description": "Aventuras en el mundo de Elden Ring",
